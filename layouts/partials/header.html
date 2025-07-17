@@ -7,6 +7,7 @@
         document.body.classList.add('dark');
     }
 </script>
+{{- if site.Params.fontSwap -}}
 <script>
     if (localStorage.getItem("pref-font") === "serif") {
         document.body.classList.add('serif-toggle')
@@ -15,6 +16,7 @@
         document.body.classList.remove('serif-toggle')
     }
 </script>
+{{- end -}}
 
 {{ with resources.Get .Site.Params.profilePicture }}
 	<picture>
@@ -47,6 +49,7 @@
             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
     </button>
+    {{- if site.Params.fontSwap -}}
     <button id="font-toggle">
         <svg id="serif" width="24" height="24" viewBox="0 0 76 76" preserveAspectRatio="xMidYMin" xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -57,4 +60,5 @@
             <path fill="currentColor" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 23.75,20.5833L 52.25,20.5833L 52.25,26.9167L 41.1667,26.9167L 41.1667,58.5833L 34.8333,58.5833L 34.8333,26.9167L 23.75,26.9167L 23.75,20.5833 Z "/>
         </svg>
     </button>
+    {{- end -}}
 </div>
