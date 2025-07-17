@@ -1,0 +1,69 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Example Website'
+theme = 'blue'
+
+[outputs]
+home = ['html']
+section = ['html']
+taxonomy = ['html']
+term = ['html']
+
+[taxonomies]
+series = 'series'
+tag = 'tags'
+category = 'categories'
+
+[permalinks]
+tags = 'blog/tags/:title'
+series = 'blog/series/:title'
+blog = 'blog/:year/:title'
+
+[[menu.main]]
+name = 'Home'
+url = ''
+weight = -1
+params.img = 'icons/home.svg'
+
+[[menu.main]]
+name = "About"
+url = "about"
+weight = 1
+params.img = 'icons/about.svg'
+
+[[menu.main]]
+name = "Contact"
+url = "contact"
+weight = 2
+params.img = 'icons/contact.svg'
+
+[[menu.main]]
+name = "Blog"
+url = "blog"
+weight = 3
+params.img = 'icons/blog.svg'
+
+[[menu.socials]]
+name = "Bluesky"
+url = "https://bsky.app/"
+weight = -1
+params.img = 'icons/bluesky.svg'
+
+[[menu.socials]]
+name = "RSS"
+url = "blog/feed.xml"
+weight = 10
+params.img = 'icons/rss.svg'
+
+[params]
+env = "production"
+hcard = true
+description = 'Example description'
+issoURL = 'comments.example.org'
+profilePicture = "profile.png"
+
+[[params.author]]
+name = 'Claire'
+email = 'inquiries@chapien.net'
+nickname = 'chapien'
+pronouns = ['She', 'Her']
