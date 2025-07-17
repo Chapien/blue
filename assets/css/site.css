@@ -82,6 +82,9 @@
     #art-detail-inline {
         display: none;
     }
+    body {
+        margin: auto;
+    }
 }
 
 .gutter-sizer {
