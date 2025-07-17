@@ -50,6 +50,12 @@
     </ul>
 </div>
 
+<div class = "copyright">
+    {{- if site.copyright }}
+    {{ site.Copyright | markdownify }}
+    {{- end }}
+</div>
+
 <script>
     document.getElementById("theme-toggle").addEventListener("click", () => {
         if (document.body.className.includes("dark")) {
