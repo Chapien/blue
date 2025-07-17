@@ -1,3 +1,13 @@
+{{ if site.Params.hideExternalMenu }}
+<style>
+    .site-menu {
+        .external-link {
+            display: none;
+        }
+    }
+</style>
+{{ end }}
+
 <nav>
     <details id="nav-menu" open>
         <summary>Menu</summary>
