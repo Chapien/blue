@@ -127,7 +127,7 @@
         </div>
     {{ end }}
 
-    {{ if in .File.Dir "blog" }}
+    {{ if in .Params.categories "Blog" }}
         {{ if site.Params.voting }}
         {{ partial "voting" . }}
         {{ end }}
