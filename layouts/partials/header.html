@@ -24,41 +24,27 @@
 		{{ with resources.Get (strings.TrimSpace $avif_path) }}
 			<source srcset="{{ .RelPermalink }}" type="image/avif">
 		{{ end }}
-		<img alt="Profile Picture" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
+		<img class="profile-picture" alt="Profile Picture" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
 	</picture>
 {{ end }}
 <h1>{{ .Site.Title }}</h1>
 <div class="title-toggles">
     <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMin"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-        </svg>
-        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" preserveAspectRatio="xMidYMin"
-            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </svg>
+        {{ with resources.Get "icons/moon.svg" }}
+            <img id="moon" alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="{{ .RelPermalink }}">
+        {{ end }}
+        {{ with resources.Get "icons/sun.svg" }}
+            <img id="sun" alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="{{ .RelPermalink }}">
+        {{ end }}
     </button>
     {{- if site.Params.fontSwap -}}
     <button id="font-toggle">
-        <svg id="serif" width="24" height="24" viewBox="0 0 76 76" preserveAspectRatio="xMidYMin" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink">
-            <path fill="currentColor" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round"
-                d="M 29,58L 29,55.0833C 32.4978,55.0833 35,53.2083 35,49.25L 35,29C 35,25.9394 32.7481,25 29.6875,25C 26.6269,25 24.5,25.9394 24.5,29L 21,29L 21,20L 55,20L 55,29L 51.5,29C 51.5,25.9394 49.373,25 46.3125,25C 43.2519,25 41,25.9394 41,29L 41,49.25C 41,53.2083 43.5022,55.0833 47,55.0833L 47,58L 29,58 Z " />
-            </svg>
-        <svg id="sans" width="24" height="24" viewBox="0 0 76 76" preserveAspectRatio="xMidYMin" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
-            <path fill="currentColor" fill-opacity="1" stroke-width="0.2" stroke-linejoin="round" d="M 23.75,20.5833L 52.25,20.5833L 52.25,26.9167L 41.1667,26.9167L 41.1667,58.5833L 34.8333,58.5833L 34.8333,26.9167L 23.75,26.9167L 23.75,20.5833 Z "/>
-        </svg>
+        {{ with resources.Get "icons/serif.svg" }}
+            <img id="serif" alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="{{ .RelPermalink }}">
+        {{ end }}
+        {{ with resources.Get "icons/sans.svg" }}
+            <img id="sans" alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="{{ .RelPermalink }}">
+        {{ end }}
     </button>
     {{- end -}}
 </div>

@@ -332,7 +332,7 @@ header {
     color: var(--background-secondary);
 }
 
-header img {
+header img.profile-picture {
     height: 3em;
     width: auto;
     vertical-align: middle;
