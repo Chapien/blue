@@ -1,7 +1,10 @@
 {{/* Partial used to display a thumbnail of an artwork. */}}
-
+{{ $full := printf "%sart/%s/image%s" site.BaseURL .Title .Params.extension }}
+{{ $thumb := printf "%sart/%s/image%s" site.BaseURL .Title .Params.extension }}
+{{- if site.Params.image_host -}}
 {{ $full := printf "%s/thumb/%s.avif" $.Site.Params.image_host .Params.filename }}
-{{ $jpeg := printf "%s/thumb/%s.jpg" $.Site.Params.image_host .Params.filename }}
+{{ $thumb := printf "%s/thumb/%s.jpg" $.Site.Params.image_host .Params.filename }}
+{{- end -}}
 
 {{ $grid_class := "grid-item" }}
 {{ if ge $.Params.aspect_ratio 1 }}
@@ -16,7 +19,7 @@
 {{ with $full }}
         <picture>
                 <source srcset="{{ $full }}" type="image/avif" width="{{ $.Params.thumb_width }}" height="{{ $.Params.thumb_height }}"/>
-                <img style="width: 100%; height: auto;" alt="{{ $.Params.alt_text }}" width="{{ $.Params.thumb_width }}" height="{{ $.Params.thumb_height }}" src="{{ $jpeg }}"/>
+                <img style="width: 100%; height: auto;" alt="{{ $.Params.alt_text }}" width="{{ $.Params.thumb_width }}" height="{{ $.Params.thumb_height }}" src="{{ $thumb }}"/>
         </picture>
 
         <span>

@@ -1,0 +1,18 @@
+{{/* Page layout used for the main art gallery page. */}}
+
+{{ define "main" }}
+    {{ $art := .Site.GetPage "/art" }}
+    {{ $artworks := (where $art.RegularPagesRecursive "Type" "art") }}
+
+    {{ $.Scratch.Set "paginator" (.Paginate $artworks) }}
+    {{ partial "art-gallery" . }}
+{{ end }}
+
+{{ define "details" }}
+    {{ partial "art-sidebar" . }}
+{{ end }}
+
+{{ define "head" }}
+    {{ partial "gallery-js" . }}
+{{ end }}
+
