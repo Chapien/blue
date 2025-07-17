@@ -1,12 +1,12 @@
 name = "red"
 license = "MIT"
-licenselink = "https://code.ryne.moe/redstrate/redstrate.com/tree/main/themes/red/LICENSE"
-description = "Custom Hugo theme for use on redstrate.com"
-homepage = "https://redstrate.com/"
+licenselink = "https://github.com/Chapien/blue/raw/refs/heads/main/LICENSE"
+description = "Custom Hugo theme based on redstrate.com"
+homepage = "https://github.com/Chapien/blue"
 tags = []
 features = []
 min_version = "0.41.0"
 
 [author]
-  name = "redstrate <josh@redstrate.com>"
-  homepage = "https://redstrate.com/"
+  name = "Claire <claire@chapien.net>"
+  homepage = "https://chapien.net/"
