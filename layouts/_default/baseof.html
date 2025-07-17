@@ -8,7 +8,7 @@
         <header>{{- partial "header.html" . -}}</header>
         <div id="content">
         <aside>{{- partial "sidebar.html" . -}}</aside>
-        <article {{ if site.Params.hcard }}class="h-entry"{{ end }}>
+        <article {{ if and (site.Params.hcard) (.IsPage)}}class="h-entry"{{ else if and (site.Params.hcard) (.IsSection) }}class="h-feed"{{ end }}>
         <div class="breadcrumbs">
             {{ partial "breadcrumbs.html" . }}
         </div>

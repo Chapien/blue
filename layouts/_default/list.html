@@ -1,7 +1,7 @@
 {{/* Page layout used for blog list view and others. */}}
 
 {{ define "main" }}
-    <h2>{{ .Title }}</h2>
+    <h2 {{ if site.Params.hcard }}class="p-name"{{ end }}>{{ .Title }}</h2>
 
     <hr>
 
@@ -12,10 +12,10 @@
     {{ end }}
 
     {{ range $paginator.Pages }}
-        <li style="margin-left: 10px; list-style-type: square;">
-            <h3 style="margin-bottom: 5px"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-            <i><time datetime='{{ .Date.Format "2006-01-02" }}'>{{ .Date.Format "Jan 2, 2006"}}</time></i>
-            <p><i>{{ .Summary }}</i></p>
+        <li style="margin-left: 10px; list-style-type: square;" {{if site.Params.hcard }}class="h-entry"{{ end }}>
+            <h3 style="margin-bottom: 5px"><a href="{{ .RelPermalink }}" {{if site.Params.hcard }}class="p-name u-url"{{ end }}>{{ .Title }}</a></h3>
+            <i><time datetime='{{ .Date.Format "2006-01-02" }}' {{ if site.Params.hcard }}class="dt-published"{{ end }}>{{ .Date.Format "Jan 2, 2006"}}</time></i>
+            <p {{ if site.Params.hcard }}class="p-summary"{{ end }}><i>{{ .Summary }}</i></p>
         </li>
     {{ end }}
 
