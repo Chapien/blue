@@ -1,6 +1,12 @@
 {{/* Page layout used for the main art gallery page. */}}
 
 {{ define "main" }}
+    <h2>{{ .Title }}</h2>
+
+    <hr>
+
+    {{ .Content }}
+    
     {{ $art := .Site.GetPage "/art" }}
     {{ $artworks := (where $art.RegularPagesRecursive "Type" "art") }}
 
