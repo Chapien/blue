@@ -10,10 +10,10 @@
             {{ .site.Params.author }}
         {{- end -}}
     </span>
-    
+
         <br>
 
-        Date
+        Date:
         <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted">
             {{ $posted }}
         </time>
@@ -22,7 +22,7 @@
     {{ .Content }}
     {{ if site.Params.noData }}
         {{ with .Resources.Get "image.png" }}
-            <img class="gallery-img" style="display: block; max-height: 1000px; margin-left: auto; margin-right: auto; width: auto; margin-top: 10px; margin-bottom: 10px; max-width: 100%; height: auto" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
+            <img class="gallery-img" style="display: block; max-height: 1000px; margin-left: auto; margin-right: auto; width: auto; margin-top: 10px; margin-bottom: 10px; max-width: 100%; height: auto" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ .Params.alt }}">
         {{ end }}
     {{ end }}
 {{ end }}
