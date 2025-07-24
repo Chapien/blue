@@ -1,6 +1,6 @@
 {{/* Partial used to display a thumbnail of an artwork. */}}
-{{ $full := printf "%sart/%s/image%s" site.BaseURL .Title .Params.extension }}
-{{ $thumb := printf "%sart/%s/image%s" site.BaseURL .Title .Params.extension }}
+{{ $full := printf "%sart/%s/image%s" site.BaseURL .Params.basename .Params.extension }}
+{{ $thumb := printf "%sart/%s/image%s" site.BaseURL .Params.basename .Params.extension }}
 {{- if site.Params.image_host -}}
 {{ $full := printf "%s/thumb/%s.avif" $.Site.Params.image_host .Params.filename }}
 {{ $thumb := printf "%s/thumb/%s.jpg" $.Site.Params.image_host .Params.filename }}
