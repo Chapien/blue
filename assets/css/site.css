@@ -222,6 +222,10 @@ body:not(.serif-toggle) #sans {
     background-color: var(--background-tertiary) !important;
 }
 
+.isso-textarea-wrapper textarea {
+    color: var(--text-color) !important;
+}
+
 .isso-input-wrapper input {
     background-color: var(--background-tertiary) !important;
     color: var(--text-color) !important;
