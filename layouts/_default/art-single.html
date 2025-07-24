@@ -1,5 +1,17 @@
 {{ define "main" }}
     <h2>{{ .Title }}</h2>
+    {{ $posted := $.Date.Format "January 02, 2006" }}
+    Art by
+        {{- if (isset .Params "author") -}}
+            {{ .Params.author }}
+        {{- else if (isset .site.Params "author") -}}
+            {{ .site.Params.author }}
+        {{- end -}}
+
+        Date
+        <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted">
+            {{ $posted }}
+        </time>
 
     {{ .Content }}
     {{ if site.Params.noData }}
