@@ -1,13 +1,23 @@
-{{ with .Params.artist }}
-    <p><strong>Artist</strong></p>
-    {{ . }}
-{{ end }}
+<p><strong>Authors</strong></p>
+{{- if (isset .Params "author") -}}
+        {{ .Params.author | $.RenderString }}
+{{- else if (isset .site.Params "author") -}}
+        {{ .site.Params.author | $.RenderString }}
+{{- end -}}
+
+{{ $posted := $.Date.Format "January 02, 2006" }}
+
+<p><strong>Date</strong></p>
+<time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted">
+    {{ $posted }}
+</time>
+</i>
 
 {{ with .Params.arttags }}
     <p><strong>{{ i18n "tags" }}</strong></p>
     {{ $len := (len .) }}
     {{ range $index, $element := . }}
-    <a href="/art/tags/{{ urlize . }}/"><strong>{{ strings.Title $element }}</strong></a>{{ if not (eq (add $index 1) $len) }},{{ end }}
+    <a href="/art/tags{{ urlize . }}/"><strong>{{ strings.Title $element }}</strong></a>{{ if not (eq (add $index 1) $len) }},{{ end }}
     {{ end }}
 {{ end }}
 

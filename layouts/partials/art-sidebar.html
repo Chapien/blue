@@ -1,8 +1,11 @@
+{{ if .Site.Params.art.statsPage }}
 <a class="art-sidebar-button" href="/art/stats">Statistics</a>
+{{ end }}
 
-{{ $art_config := index $.Site.Data "art-config" }}
-{{ if $art_config.commissions }}
-<a class="art-sidebar-button" href="/commission">Commissions</a>
-{{ else }}
-<a class="art-sidebar-button" href="/commission">Commissions (CLOSED)</a>
+{{ if .Site.Params.art.takesCommissions }}
+    {{ if .Site.Params.art.commissionsOpen }}
+        <a class="art-sidebar-button" href="/commission">Commissions</a>
+    {{ else }}
+        <a class="art-sidebar-button" href="/commission">Commissions (CLOSED)</a>
+    {{ end }}
 {{ end }}
