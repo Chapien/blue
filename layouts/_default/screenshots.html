@@ -1,0 +1,41 @@
+{{/* Page layout used for the main art gallery page. */}}
+
+{{ define "main" }}
+    <h2>{{ .Title }}</h2>
+    <hr>
+
+    <div class="art-outer">
+        <div class="art-inner">
+            {{ .Content }}
+        </div>
+
+        {{ with resources.Get "pics/pic-gallery.jpg" }}
+        <picture>
+            {{ $avif_path := replace . ".jpg" ".avif "}}
+            {{ with resources.Get (strings.TrimSpace $avif_path) }}
+                <source srcset="{{ .RelPermalink }}" type="image/avif">
+            {{ end }}
+            <img class="gallery-img page-pic" alt="Drawing of an art gallery with several people standing around a piece hanging on the wall." width="{{ .Width }}" height="{{ .Height }}" src="{{ .RelPermalink }}">
+        </picture>
+        {{ end }}
+    </div>
+    <div id="art-button-main-container">
+        {{ range $gallery := $.Site.Params.screenshots.galleries }}
+            {{ with $.Site.GetPage $gallery }}
+                {{ .Scratch.Set "title" .Title }}
+                {{ .Scratch.Set "img" (.Params.image) }}
+                {{ .Scratch.Set "link" .RelPermalink }}
+                {{ partial "art-fancy-button" . }}
+            {{ end }}
+        {{ end }}
+    </div>
+{{ end }}
+
+{{ define "details" }}
+    {{ partial "art-sidebar" . }}
+
+    <p><strong>Tags</strong></p>
+    {{ range $name, $taxonomy := (index .Site.Taxonomies "arttags") }}
+        <a href="/art/tags/{{ $name | urlize }}">{{ $taxonomy.Page.Title }}</a><br>
+    {{ end }}
+{{ end }}
