@@ -1,6 +1,6 @@
 +++
 title = "Tags"
-url = "/art/"
+url = "/art/tags/"
 layout = "listart"
 listtag = "arttags"
 skipparent = true
