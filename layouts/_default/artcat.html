@@ -1,0 +1,22 @@
+{{ define "main" }}
+    <h2>{{ .Title }}</h2>
+
+    <hr>
+
+    {{ .Content }}
+
+    {{ $tags := .Params.arttags }}
+    {{ $art := .Site.GetPage "/art" }}
+    {{ $artworks := (where $art.RegularPagesRecursive "Type" "art") }}
+    {{ $displayed := (where $artworks "Params.arttags" "intersect" $tags) }}
+    {{ $.Scratch.Set "paginator" (.Paginate $displayed) }}
+    {{ partial "art-gallery" . }}
+{{ end }}
+
+{{ define "details" }}
+    {{ partial "art-sidebar" . }}
+{{ end }}
+
+{{ define "head" }}
+    {{ partial "gallery-js" . }}
+{{ end }}
