@@ -224,6 +224,7 @@ body:not(.serif-toggle) #sans {
 
 .isso-input-wrapper input {
     background-color: var(--background-tertiary) !important;
+    color: var(--text-color) !important;
 }
 
 .isso-post-action > input {
