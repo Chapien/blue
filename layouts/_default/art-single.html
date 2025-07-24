@@ -3,12 +3,14 @@
     {{ $posted := $.Date.Format "January 02, 2006" }}
     <i style="margin: 0">
     Art by
+    <span>
         {{- if (isset .Params "author") -}}
             {{ .Params.author }}
         {{- else if (isset .site.Params "author") -}}
             {{ .site.Params.author }}
         {{- end -}}
-
+    </span>
+    
         <br>
 
         Date
