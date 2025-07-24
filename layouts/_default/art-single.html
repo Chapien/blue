@@ -5,9 +5,9 @@
     Art by
     <span>
         {{- if (isset .Params "author") -}}
-            {{ .Params.author }}
+            {{ .Params.author | $.RenderString }}
         {{- else if (isset .site.Params "author") -}}
-            {{ .site.Params.author }}
+            {{ .site.Params.author | $.RenderString }}
         {{- end -}}
     </span>
 
