@@ -169,12 +169,13 @@ body.dark {
     .external-link {
         filter: invert(100%);
     }
-    .isso-thread-heading, .isso-author {
-        color: var(--text-color) !important;
-    }
     .symbolic-icon {
         filter: invert(100%);
     }
+}
+
+.isso-thread-heading, .isso-author {
+    color: var(--text-color) !important;
 }
 
 button#theme-toggle {
