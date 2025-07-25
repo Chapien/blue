@@ -10,7 +10,7 @@
         {{- if (isset .Params "author") -}}
             {{ .Params.author }}
         {{- else if (isset .site.Params "author") -}}
-            {{ .site.Params.author }}
+            {{ .site.Params.author.name }}
         {{- end -}}
         </span><br>
         Posted on
