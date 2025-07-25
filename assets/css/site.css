@@ -170,7 +170,7 @@ body.dark {
         filter: invert(100%);
     }
     .isso-thread-heading, .isso-author {
-        color: #fbeded !important;
+        color: var(--text-color) !important;
     }
     .symbolic-icon {
         filter: invert(100%);
