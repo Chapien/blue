@@ -9,8 +9,8 @@
         <span {{ if site.Params.hcard }}class="p-author"{{ end }}>
         {{- if (isset .Params "author") -}}
             {{ .Params.author }}
-        {{- else if (isset .site.Params "author") -}}
-            {{ .site.Params.author.name }}
+        {{- else if (isset .Site.Params "author") -}}
+            {{ .Site.Params.author.name }}
         {{- end -}}
         </span><br>
         Posted on
