@@ -836,14 +836,12 @@ model-viewer {
 }
 
 .site-menu > img {
-  float: left;
-  margin-top: 2px;
-  position: absolute;
-  margin-left: -10px;
-  left: 35px;
+    float: left;
+    margin-left: 5px;
+    margin-top: 2px;
 }
 
-.site-menu > a {
+.site-menu a {
     text-align: left;
 }
 
