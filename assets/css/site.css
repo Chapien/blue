@@ -366,7 +366,7 @@ aside {
     padding: 15px;
 }
 
-aside .nav-menu {
+aside .nav-menu a {
     text-align: left;
 }
 
