@@ -24,8 +24,7 @@
 		{{ with resources.Get (strings.TrimSpace $avif_path) }}
 			<source srcset="{{ .RelPermalink }}" type="image/avif">
 		{{ end }}
-        <a href="/" rel=me><img class="profile-picture" alt="Profile Picture" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"></a>
-	</picture>
+        <a href="/" rel=me><img class="profile-picture" alt="Profile Picture" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"></a></picture>
    
 {{ end }}
 <h1>{{ .Site.Title }}</h1>
