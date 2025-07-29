@@ -347,10 +347,6 @@ header img.profile-picture {
     background-color: var(--background-secondary);
 }
 
-header picture a {
-    text-decoration: none;
-}
-
 header h1 {
     display: inline;
     vertical-align: middle;
