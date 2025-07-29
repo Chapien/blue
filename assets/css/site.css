@@ -347,6 +347,10 @@ header img.profile-picture {
     background-color: var(--background-secondary);
 }
 
+header picture a {
+    display: inherit;
+}
+
 header h1 {
     display: inline;
     vertical-align: middle;
