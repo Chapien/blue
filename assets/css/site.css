@@ -350,6 +350,7 @@ header img.profile-picture {
 header picture a {
     display: inline-block !important;
     text-decoration: none !important;
+    white-space-collapse: discard !important;
     border:0px !important;
     outline:none;
     border-width: 0px;
