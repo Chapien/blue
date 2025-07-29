@@ -348,6 +348,7 @@ header img.profile-picture {
 }
 
 header picture a {
+    display: inline-block !important;
     text-decoration: none !important;
     border:0px !important;
     outline:none;
