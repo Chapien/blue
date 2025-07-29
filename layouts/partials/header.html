@@ -19,7 +19,7 @@
 {{- end -}}
 
 {{ with resources.Get .Site.Params.profilePicture }}
-    <a href="{{ $.Site.Home.PermaLink }}" rel=me>
+    <a href="/" rel=me>
 	<picture>
 		{{ $avif_path := replace . ".png" ".avif "}}
 		{{ with resources.Get (strings.TrimSpace $avif_path) }}
