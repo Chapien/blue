@@ -841,8 +841,8 @@ model-viewer {
     margin-top: 2px;
 }
 
-.site-menu a {
-    align-content: left;
+.site-menu > a {
+    text-align: left;
 }
 
 .pagination > .page-item {
