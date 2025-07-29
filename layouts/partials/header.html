@@ -19,6 +19,7 @@
 {{- end -}}
 
 {{ with resources.Get .Site.Params.profilePicture }}
+    <a href="{{ .Site.BaseURL }}" rel=me>
 	<picture>
 		{{ $avif_path := replace . ".png" ".avif "}}
 		{{ with resources.Get (strings.TrimSpace $avif_path) }}
@@ -26,6 +27,7 @@
 		{{ end }}
 		<img class="profile-picture" alt="Profile Picture" src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}">
 	</picture>
+    </a>
 {{ end }}
 <h1>{{ .Site.Title }}</h1>
 <div class="title-toggles">
