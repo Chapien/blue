@@ -841,7 +841,7 @@ model-viewer {
     margin-top: 2px;
 }
 
-.site-menu > a {
+aside > .site-menu > a {
     text-align: left !important;
 }
 
