@@ -366,6 +366,10 @@ aside {
     padding: 15px;
 }
 
+aside .nav-menu {
+    text-align: left;
+}
+
 article {
     background-color: var(--background-secondary);
 
@@ -839,10 +843,6 @@ model-viewer {
     float: left;
     margin-left: 5px;
     margin-top: 2px;
-}
-
-aside > .site-menu > a {
-    text-align: left !important;
 }
 
 .pagination > .page-item {
