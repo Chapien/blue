@@ -842,7 +842,7 @@ model-viewer {
 }
 
 .site-menu > a {
-    text-align: left;
+    text-align: left !important;
 }
 
 .pagination > .page-item {
