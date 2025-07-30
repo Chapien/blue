@@ -25,7 +25,7 @@
                 {{ if not (strings.Contains $url "https") }}
                     {{ $url = printf "%s%s" $.Site.Home.Permalink .URL }}
                 {{ end }}
-                <a href="{{ $url }}">{{ .Name }}{{ if strings.HasPrefix .URL "http" }}<img class="external-link" aria-hidden="true" alt="External link" width="16" height="16" src="{{ $icon.RelPermalink }}">{{- end -}}</a>
+                <a href="{{ $url }}" class="nav-item">{{ .Name }}{{ if strings.HasPrefix .URL "http" }}<img class="external-link" aria-hidden="true" alt="External link" width="16" height="16" src="{{ $icon.RelPermalink }}">{{- end -}}</a>
             </div>
         {{ end }}
 
@@ -38,7 +38,7 @@
                 {{ with resources.Get .Params.img }}
                     <img alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="{{ .RelPermalink }}">
                 {{ end }}
-                <a rel="me" href="{{ .URL  }}">{{ .Name }}{{ if strings.HasPrefix .URL "http" }}<img class="external-link" aria-hidden="true" alt="External link" width="16" height="16" src="{{ $icon.RelPermalink }}">{{- end -}}</a>
+                <a rel="me" href="{{ .URL  }}" class="nav-item">{{ .Name }}{{ if strings.HasPrefix .URL "http" }}<img class="external-link" aria-hidden="true" alt="External link" width="16" height="16" src="{{ $icon.RelPermalink }}">{{- end -}}</a>
             </div>
         {{ end }}
 
@@ -51,7 +51,7 @@
                     {{ $specificLang := .Lang }}
                     {{ range $currentPage.Translations }}
                         {{ if (eq .Lang $specificLang) }}
-                            <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+                            <a href="{{ .RelPermalink }}" class="nav-item">{{ .Language.LanguageName }}</a>
                         {{ end }}
                     {{ end }}
                 {{ end }}
