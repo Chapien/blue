@@ -1,8 +1,9 @@
 <div id="f-badges">
     {{ range $.Site.Menus.badges }}
         {{ $badgeScope := . }}
-        {{ with resources.Get .URL }}
-            <img style="image-rendering: pixelated;" width="{{ .Width }}" height="{{ .Height }}" src="{{ .RelPermalink }}" alt="{{ $badgeScope.Name }}">
+        {{ $url := .URL }}
+        {{ with resources.Get .Params.img }}
+             <a href="{{ $url }}"><img style="image-rendering: pixelated;" width="80" height="15" src="{{ .RelPermalink }}" alt="{{ $badgeScope.Name }}"></a>
         {{ end }}
     {{ end }}
 
