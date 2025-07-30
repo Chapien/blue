@@ -1,7 +1,31 @@
 {{/* Page layout used for blog list view and others. */}}
 
 {{ define "main" }}
-    <h2 {{ if site.Params.hcard }}class="p-name"{{ end }}>{{ .Title }}</h2>
+    <h2>{{ .Title }}</h2>
+    {{ $published := $.Date.Format "January 02, 2006" }}
+    <i style="margin: 0">
+    {{- if (isset .Params "author") -}}
+    Written by
+    <span>
+        {{ .Params.author }}
+    <br>
+    {{- end -}}
+    {{- if (isset .Params "source") -}}
+    Source:
+    <span>
+        {{ .Params.source | markdownify }}
+        <br>
+    </span>
+    {{- end -}}
+    {{ if (isset .Params "license") }}
+        <span>License: {{ .Params.license | markdownify }}</span>
+        <br>
+    {{ end }}
+    Published on
+    <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted">
+            {{ $published }}
+        </time>
+    </i>
 
     <hr>
 
@@ -16,10 +40,17 @@
     {{ range $paginator.Pages }}
         <li style="margin-left: 10px; list-style-type: square;" {{if site.Params.hcard }}class="h-entry"{{ end }}>
             <h3 style="margin-bottom: 5px"><a href="{{ .RelPermalink }}" {{if site.Params.hcard }}class="p-name u-url"{{ end }}>{{ .Title }}</a></h3>
-            <i>{{ .Params.Author }}</i>
-            •
-            <i><time datetime='{{ .Date.Format "2006-01-02" }}' {{ if site.Params.hcard }}class="dt-published"{{ end }}>{{ .Date.Format "Jan 2, 2006"}}</time></i>
-            <p><i>{{ .Params.Page }} of {{ $paginator.Pages.Len }}</i></p>
+            {{ if not $.Params.nodetails }}
+                {{ with .Params.Author }}
+                <i>{{ . }}</i>
+                •
+                {{ end }}
+                <i><time datetime='{{ .Date.Format "2006-01-02" }}' {{ if site.Params.hcard }}class="dt-published"{{ end }}>{{ .Date.Format "Jan 2, 2006"}}</time></i>
+                {{ with .Params.License }}
+                • <i>{{ . | markdownify }}</i>
+                {{ end }}
+            {{ end }}
+            <p {{ if site.Params.hcard }}class="p-summary"{{ end }}><i>{{ .Summary }}</i></p>
         </li>
     {{ end }}
 
