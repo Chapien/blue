@@ -5,7 +5,9 @@
 
     <hr>
 
-    {{ $paginator := .Paginate .Pages }}
+    {{ $sortedPages := .Pages.ByParam "page" }}
+
+    {{ $paginator := .Paginate $sortedPages }}
 
     {{ if eq $paginator.PageNumber 1}}
     {{ .Content }}
@@ -17,7 +19,7 @@
             <i>{{ .Params.Author }}</i>
             •
             <i><time datetime='{{ .Date.Format "2006-01-02" }}' {{ if site.Params.hcard }}class="dt-published"{{ end }}>{{ .Date.Format "Jan 2, 2006"}}</time></i>
-            <p {{ if site.Params.hcard }}class="p-summary"{{ end }}><i>{{ .Summary }}</i></p>
+            <p><i>{{ .Params.Page }} of {{ $paginator.Pages.Len }}</i></p>
         </li>
     {{ end }}
 
