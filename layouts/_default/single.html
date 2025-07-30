@@ -127,6 +127,35 @@
         </div>
     {{ end }}
 
+    {{ $page := . }}
+    {{ $pages := (.CurrentSection.Pages.ByParam "pages").Reverse }}
+    {{ with .Params.page  }}
+        <ul class="pagination">
+        {{ with $pages.Prev $page }}
+            <li class="page-item">
+            <a style="float: left" href="{{ .RelPermalink }}">Prev</a>
+            </li>
+            {{ else }}
+            <li class="page-item disabled">
+            <span style="float: left">Prev</span>
+            </li>
+        {{ end }}
+
+        <span style="display: inline-block;">{{ printf "Page %d" $page.Params.Page }}</span>
+
+        {{ with $pages.Next $page }}
+            <li class="page-item">
+            <a style="float: right" href="{{ .RelPermalink }}">Next</a>
+            </li>
+            {{ else }}
+            <li class="page-item disabled">
+            <span style="float: right">Next</span>
+            </li>
+    {{ end }}
+
+    </ul>
+    {{ end }}
+
     {{ if in .Params.categories "Blog" }}
         {{ if site.Params.voting }}
         {{ partial "voting" . }}
