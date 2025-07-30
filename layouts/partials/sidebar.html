@@ -12,7 +12,7 @@
     <details id="nav-menu" open>
         <summary>Menu</summary>
 
-        <strong>{{ lang.Translate "navigation" }}</strong>
+        <strong class="nav-title">{{ lang.Translate "navigation" }}</strong>
 
         {{ $icon := resources.Get "external-link.svg" }}
 
@@ -31,7 +31,7 @@
 
         <br/>
 
-        <strong>{{ lang.Translate "social_media" }}</strong>
+        <strong class="nav-title">{{ lang.Translate "social_media" }}</strong>
 
         {{ range .Site.Menus.socials }}
             <div class="site-menu">
@@ -44,7 +44,7 @@
 
         {{ if .IsTranslated }}
             <br>
-            <strong>Page Languages</strong>
+            <strong class="nav-title">Page Languages</strong>
             <div class="site-meni">
                 {{ $currentPage := . }}
                 {{ range .Translations }}
