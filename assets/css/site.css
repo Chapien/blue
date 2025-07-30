@@ -715,7 +715,7 @@ model-viewer {
 
 .page-pic {
     width: 200px;
-    height: 200px;
+    height: auto;
 }
 
 .project-header {

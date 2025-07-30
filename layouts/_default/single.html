@@ -60,6 +60,12 @@
 
     <hr>
 
+    {{ with .Params.cover }}
+    <picture>
+          <img class="gallery-img page-pic" alt="{{ .caption }}" title="{{ .caption }}" src="{{ .Image }}">
+    </picture>
+    {{ end }}
+
     {{ if .Params.toc }}
     <details>
         <summary>Table of Contents</summary>
