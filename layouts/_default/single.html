@@ -26,10 +26,16 @@
 
         <br>
 
-        <span {{ if site.Params.hcard }}class="p-category"{{ end }}>Tags:</span>
-        {{ $terms := .GetTerms "tags" }}
-        {{ range $terms }}
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{-  range $siteTaxonomyName, $siteTaxonomyData := .Site.Taxonomies -}}
+            {{ with $.Page.GetTerms $siteTaxonomyName }}
+                {{ if or (eq $siteTaxonomyName "categories") (eq $siteTaxonomyName "series") }}
+                    {{ continue }}
+                {{ end }}
+                <span {{ if site.Params.hcard }}class="p-category"{{ end }}>{{ $siteTaxonomyName | title }}:</span>
+                {{- range . }}
+                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                {{ end }}      
+            {{ end }}
         {{ end }}
 
         <br>
