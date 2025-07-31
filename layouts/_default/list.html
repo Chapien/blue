@@ -2,11 +2,46 @@
 
 {{ define "main" }}
     <h2 {{ if site.Params.hcard }}class="p-name"{{ end }}>{{ .Title }}</h2>
-
+    {{- if (isset .Params "book") -}}
+        {{ $published := $.Date.Format "January 02, 2006" }}
+        {{ $modified := $.Page.Lastmod.Format "January 02, 2006" }}
+        <i style="margin: 0">
+        {{- if (isset .Params "author") -}}
+        Written by
+        <span>
+            {{ .Params.author }}
+        <br>
+        {{- end -}}
+        {{- if (isset .Params "source") -}}
+        Source:
+        <span>
+            {{ .Params.source | markdownify }}
+            <br>
+        </span>
+        {{- end -}}
+        {{ if (isset .Params "license") }}
+            <span>License: {{ .Params.license | markdownify }}</span>
+            <br>
+        {{ end }}
+        Published on
+        <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted">
+                {{ $published }}
+        </time>
+        {{ if not (eq $posted $modified) }}
+        <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted {{ if site.Params.hcard }}dt-updated{{ end }}">
+            (Updated on {{ $modified }})
+            </time>
+        {{ end }}
+        </i>
+    {{- end -}}
     <hr>
-
+    
+    {{ $sortedPages := .Pages.ByParam "page" }}
     {{ $paginator := .Paginate .Pages }}
-
+    {{ if (isset .Params "book") }}
+        {{ $paginator = .Paginate .Pages }}
+    {{ end }}
+    
     {{ if eq $paginator.PageNumber 1}}
     {{ .Content }}
     {{ end }}
