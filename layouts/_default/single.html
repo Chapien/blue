@@ -1,40 +1,46 @@
 {{ define "main" }}
     <h2 {{ if site.Params.hcard }}class="p-name"{{ end }}>{{ .Title }}</h2>
 
-    {{ if in .Params.categories "Blog" }}
+    {{ if not .Params.hidefrontmatter }}
         {{ $posted := $.Date.Format "January 02, 2006" }}
         {{ $modified := $.Page.Lastmod.Format "January 02, 2006" }}
         <i style="margin: 0">
-        Written by
-        <span {{ if site.Params.hcard }}class="p-author"{{ end }}>
-        {{- if (isset .Params "author") -}}
-            {{ .Params.author }}
-        {{- else if (isset .Site.Params "author") -}}
-            {{ .Site.Params.author.name }}
-        {{- end -}}
-        </span><br>
-        Posted on
-        <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted {{ if site.Params.hcard }}dt-published{{ end }}">
-            {{ $posted }}
-        </time>
-        {{ if not (eq $posted $modified) }}
-            <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted {{ if site.Params.hcard }}dt-updated{{ end }}">
-                (Updated on {{ $modified }})
+        {{ if not .Params.hideauthor }}
+            Written by
+            <span {{ if site.Params.hcard }}class="p-author"{{ end }}>
+            {{- if (isset .Params "author") -}}
+                {{ .Params.author }}
+            {{- else if (isset .Site.Params "author") -}}
+                {{ .Site.Params.author.name }}
+            {{- end -}}
+        {{ end }}
+        {{ if not .Params.hidedate }}
+            </span><br>
+            Posted on
+            <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted {{ if site.Params.hcard }}dt-published{{ end }}">
+                {{ $posted }}
             </time>
+            {{ if not (eq $posted $modified) }}
+                <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted {{ if site.Params.hcard }}dt-updated{{ end }}">
+                    (Updated on {{ $modified }})
+                </time>
+            {{ end }}
         {{ end }}
         </i>
 
         <br>
 
-        {{-  range $siteTaxonomyName, $siteTaxonomyData := .Site.Taxonomies -}}
-            {{ with $.Page.GetTerms $siteTaxonomyName }}
-                {{ if or (eq $siteTaxonomyName "categories") (eq $siteTaxonomyName "series") }}
-                    {{ continue }}
+        {{ if not .Params.hidetaxonomy }}
+            {{-  range $siteTaxonomyName, $siteTaxonomyData := .Site.Taxonomies -}}
+                {{ with $.Page.GetTerms $siteTaxonomyName }}
+                    {{ if or (eq $siteTaxonomyName "categories") (eq $siteTaxonomyName "series") }}
+                        {{ continue }}
+                    {{ end }}
+                    <span {{ if site.Params.hcard }}class="p-category"{{ end }}>{{ $siteTaxonomyName | title }}:</span>
+                    {{- range . }}
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    {{ end }}      
                 {{ end }}
-                <span {{ if site.Params.hcard }}class="p-category"{{ end }}>{{ $siteTaxonomyName | title }}:</span>
-                {{- range . }}
-                    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                {{ end }}      
             {{ end }}
         {{ end }}
 
