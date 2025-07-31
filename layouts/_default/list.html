@@ -27,7 +27,7 @@
         <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted">
                 {{ $published }}
         </time>
-        {{ if not (eq $posted $modified) }}
+        {{ if not (eq $published $modified) }}
         <time datetime="{{ .Page.Lastmod.Format "2006-01-02" }}" class="text-muted {{ if site.Params.hcard }}dt-updated{{ end }}">
             (Updated on {{ $modified }})
             </time>
