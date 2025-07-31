@@ -36,7 +36,7 @@
                     {{ if or (eq $siteTaxonomyName "categories") (eq $siteTaxonomyName "series") }}
                         {{ continue }}
                     {{ end }}
-                    <span {{ if site.Params.hcard }}class="p-category"{{ end }}>{{ $siteTaxonomyName | title }}:</span>
+                    <span {{ if site.Params.hcard }}class="p-category"{{ end }}>{{ $siteTaxonomyName | T }}:</span>
                     {{- range . }}
                         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                     {{ end }}      

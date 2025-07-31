@@ -33,7 +33,22 @@
             </time>
         {{ end }}
         </i>
+        <br>
+        {{ if not .Params.hidetaxonomy }}
+            {{-  range $siteTaxonomyName, $siteTaxonomyData := .Site.Taxonomies -}}
+                {{ with $.Page.GetTerms $siteTaxonomyName }}
+                    {{ if or (eq $siteTaxonomyName "categories") (eq $siteTaxonomyName "series") }}
+                        {{ continue }}
+                    {{ end }}
+                    <span {{ if site.Params.hcard }}class="p-category"{{ end }}>{{ $siteTaxonomyName | T }}:</span>
+                    {{- range . }}
+                        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ end }}
     {{- end -}}
+
     <hr>
     
     {{ $sortedPages := .Pages.ByParam "page" }}
