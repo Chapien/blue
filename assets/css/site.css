@@ -717,9 +717,14 @@ model-viewer {
     margin-right: auto;
 }
 
-.page-pic, .sidebar-pic {
+.page-pic {
     width: 200px;
     height: auto;
+}
+.sidebar-pic {
+    width: 200px;
+    height: auto;
+    margin-top: 5px;
 }
 
 .project-header {
