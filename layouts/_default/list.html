@@ -64,7 +64,7 @@
     {{ if eq .Params.thumbnails true }}
         <div id="art-button-main-container">
         {{ range $paginator.Pages }}
-            <a class="art-fancy-button" href="{{ .RelPermalink }}">
+            <figure class="art-fancy-button">
                 <div style="display: inline-grid">
                     <p>{{ .Title }}</p>
                     {{ $image := .Resources.Get .Params.thumb.img }}
@@ -75,7 +75,7 @@
                         <a href="{{ . }}" class="override"><p>Source</p></a>
                     {{ end }}
                 </div>
-            </a>
+            </figure>
         {{ end }}
         </div>
     {{ else }}
