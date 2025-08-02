@@ -509,13 +509,13 @@ tbody > tr {
 
 table {
     width: 100%;
-    border: 1px solid black;
+    border: var(--border-color);
     border-radius: 3px;
     background-color: var(--background-tertiary);
 }
 
 td {
-    border: 1px inset black;
+    border: var(--border-color);
 }
 
 #f-badges {
