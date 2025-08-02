@@ -66,11 +66,13 @@
         {{ range $paginator.Pages }}
             <figure class="art-fancy-button">
                 <div style="display: inline-grid">
-                    <p>{{ .Title }}</p>
-                    {{ $image := .Resources.Get .Params.thumb.img }}
-                    {{ with $image }}
-                        <img src="{{ .RelPermalink }}" width=400 height=150 />
-                    {{ end }}
+                    <a href="{{ .RelPermalink }}">
+                        <p>{{ .Title }}</p>
+                        {{ $image := .Resources.Get .Params.thumb.img }}
+                        {{ with $image }}
+                            <img src="{{ .RelPermalink }}" width=400 height=150 />
+                        {{ end }}
+                    </a>
                     {{ with .Params.thumb.src }}
                         <a href="{{ . }}"><p>Source</p></a>
                     {{ end }}
