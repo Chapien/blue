@@ -27,7 +27,7 @@
     {{ with .Params.software.what }}
     <tr>
         <td><strong class="nav-title">What?</strong></td>
-        <td>{{ markdownify }}</td>
+        <td>{{ . | markdownify }}</td>
     </tr>
     {{ end }}
 </table>
