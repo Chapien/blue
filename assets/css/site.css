@@ -724,7 +724,8 @@ model-viewer {
 .sidebar-pic {
     width: 200px;
     height: auto;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .project-header {
