@@ -1,5 +1,5 @@
 <span class="nav-item"><strong>{{ .Title }}</strong></span>
-<p class="software-details">{{ .Params.software.summary }}</p>
+<p class="software-details">{{ .Params.software.summary | .markdownify }}</p>
 <nav>
     <details id="nav-menu" open>
     <summary>Project links</summary>
