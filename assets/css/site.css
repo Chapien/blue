@@ -435,14 +435,14 @@ figure figcaption {
 }
 
 .gallery-con {
-    border: 1px dashed var(--border-color);
+    border: 1px dashed var(--extra-color);
     border-radius: 5px;
     background-color: var(--background-tertiary);
     padding: 20px;
 }
 
 .generic-con {
-    border: 1px dashed var(--border-color);
+    border: 1px dashed var(--extra-color);
     border-radius: 5px;
     background-color: var(--background-tertiary);
 
@@ -542,7 +542,7 @@ h2 {
 }
 
 iframe {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--extra-color);
 }
 
 hr {
@@ -570,7 +570,7 @@ pre {
 }
 
 .blurb {
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--extra-color);
     border-radius: 3px;
 
     margin: .5em;
@@ -626,7 +626,7 @@ pre {
     line-height: 1.35em;
     margin: 1.5rem auto;
     padding: 1rem;
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--extra-color);
     border-radius: 12px;
 }
 
@@ -814,7 +814,7 @@ model-viewer {
 
 .page-item:not(.disabled):not(.active) {
     background-color: var(--extra-color);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--extra-color);
     border-radius: 2px;
 
     a {
