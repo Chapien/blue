@@ -24,7 +24,7 @@
 <hr>
 <strong class="nav-title">Details</strong>
 <table>
-    {{ with .Params.software "what" }}
+    {{ with .Params.software.what }}
     <tr>
         <td><strong class="nav-title">What?</strong></td>
         <td>{{ markdownify }}</td>
