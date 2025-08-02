@@ -887,7 +887,7 @@ model-viewer {
         text-decoration: none;
     }
 
-    img {
+    img:not(.external-link) {
         border: 1px solid var(--border-color);
         margin: -1px;
         object-fit: cover;
