@@ -880,6 +880,7 @@ model-viewer {
         margin: 0;
         color: var(--text-color);
         padding: 5px;
+        text-decoration: none;
     }
 
     img {

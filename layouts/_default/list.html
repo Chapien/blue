@@ -74,7 +74,10 @@
                         {{ end }}
                     </a>
                     {{ with .Params.thumb.src }}
-                        <a href="{{ . }}"><p>Source</p></a>
+                        {{ $icon := resources.Get "external-link.svg" }}
+                        <a class="ext-link" href="{{ . | safeURL }}" {{ if strings.HasPrefix .Destination "http" }}
+                        target="_blank"{{ end }}>Source
+                        {{- if strings.HasPrefix . "http" }}<img class="external-link" aria-hidden="true" alt="External link" width="16" height="16" src="{{ $icon.RelPermalink }}">{{- end -}}</a>
                     {{ end }}
                 </div>
             </figure>
