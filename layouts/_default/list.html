@@ -69,8 +69,9 @@
                     <a href="{{ .RelPermalink }}">
                         <p>{{ .Title }}</p>
                         {{ $image := .Resources.Get .Params.thumb.img }}
+                        {{ $center := .Params.thumb.center }}
                         {{ with $image }}
-                            <img src="{{ .RelPermalink }}" width=400 height=150 />
+                            <img src="{{ .RelPermalink }}" width=400 height=150 {{ if eq $center true }}style="object-position: center;"{{ end }}/>
                         {{ end }}
                     </a>
                     {{ with .Params.thumb.src }}
