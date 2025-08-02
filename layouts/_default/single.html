@@ -223,3 +223,8 @@
         </script>
     {{ end }}
 {{ end }}
+{{- define "details" -}}
+    {{- if (isset .Params "software") -}}
+        {{ partial "software-detail" . }}
+    {{ end }}
+{{ end }}

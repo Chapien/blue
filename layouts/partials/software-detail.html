@@ -1,0 +1,16 @@
+<span class="nav-item"><strong>{{ .Title }}</strong></span>
+<p>{{ .Params.software.summary }}</p>
+<nav>
+    <details id="nav-menu" open>
+    <summary>Project links</summary>
+    <strong class="nav-title">Links</strong>
+    <div class="site-menu">
+    <img alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="/icons/globe.svg"> 
+    <a class="software-links" href="{{ .Params.software.upstream }}"><strong>Upstream</strong></a>
+    </div>
+    <div class="site-menu">
+    <img alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="{{ (resources.Get .Params.software.repoico).Permalink }}">
+    <a class="software-links" href="{{ .Params.software.repo }}"><strong>Repo</strong></a>
+    </div>
+</nav>
+
