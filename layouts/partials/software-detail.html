@@ -14,10 +14,22 @@
         <a class="software-links nav-item" href="{{ .Params.software.upstream }}" target="_blank">Upstream</a>
         </div>
     {{ end }}
+    {{ if (isset .Params.software "website" ) }}
+        <div class="site-menu">
+        <img alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="/icons/globe.svg"> 
+        <a class="software-links nav-item" href="{{ .Params.software.website }}" target="_blank">Website</a>
+        </div>
+    {{ end }}
     {{ if (isset .Params.software "repo" ) }}
         <div class="site-menu">
         <img alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="{{ (resources.Get .Params.software.repoico).Permalink }}">
         <a class="software-links nav-item" href="{{ .Params.software.repo }}" target="_blank">Repo</a>
+        </div>
+    {{ end }}
+    {{ if (isset .Params.software "store" ) }}
+        <div class="site-menu">
+        <img alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="{{ (resources.Get .Params.software.storeico).Permalink }}">
+        <a class="software-links nav-item" href="{{ .Params.software.store }}" target="_blank">Store Page</a>
         </div>
     {{ end }}
 </nav>
