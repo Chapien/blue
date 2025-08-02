@@ -1,6 +1,6 @@
 <span class="nav-item"><strong>{{ .Title }}</strong></span>
 {{ with .Params.thumb }}
-    <img class="gallery-img page-pic" alt="{{ .caption }}" title="{{ .caption }}" src="{{ .Image }}">
+    <img class="gallery-img page-pic" alt="{{ .caption }}" title="{{ .caption }}" src="{{ .img }}">
 {{ end }}
 <p class="software-details">{{ .Params.software.summary | markdownify }}</p>
 <nav>
