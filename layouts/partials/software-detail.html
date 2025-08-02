@@ -30,4 +30,16 @@
         <td>{{ . | markdownify }}</td>
     </tr>
     {{ end }}
+    {{ with .Params.software.when }}
+    <tr>
+        <td><strong class="nav-title">When?</strong></td>
+        <td>{{ . | markdownify }}</td>
+    </tr>
+    {{ end }}
+    {{ with .Params.software.status }}
+    <tr>
+        <td><strong class ="nav-title">Status?</strong></td>
+        <td>{{ . | markdownify }}</td>
+    </tr>
+    {{ end }}
 </table>
