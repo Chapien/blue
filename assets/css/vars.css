@@ -10,6 +10,8 @@
     --extra-color: #efe4e4;
     --border: 3px double var(--border-color);
     --shadow: 3px 3px 0px black;
+    --isso-thread-heading: var(--text-color);
+    --isso-author: #db7979;
 }
 
 :root .dark {
@@ -22,4 +24,6 @@
     --text-color: #fbeded;
     --link-visited: #75A6FF;
     --extra-color: #504e5a;
+    --isso-thread-heading: var(--text-color);
+    --isso-author: #db7979;
 }

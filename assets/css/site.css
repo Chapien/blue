@@ -246,7 +246,7 @@ body:not(.serif-toggle) #sans {
 }
 
 .isso-page-author-suffix {
-    color: #db7979 !important;
+    color: var(--isso-author) !important;
 }
 
 /* prInclusive Sanss */
