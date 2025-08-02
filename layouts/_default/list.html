@@ -56,30 +56,46 @@
     {{ if (isset .Params "book") }}
         {{ $paginator = .Paginate .Pages }}
     {{ end }}
-    
+
     {{ if eq $paginator.PageNumber 1}}
-    {{ .Content }}
+        {{ .Content }}
     {{ end }}
 
-    {{ range $paginator.Pages }}
-        <li style="margin-left: 10px; list-style-type: square;" {{if site.Params.hcard }}class="h-entry"{{ end }}>
-            <h3 style="margin-bottom: 5px"><a href="{{ .RelPermalink }}" {{if site.Params.hcard }}class="p-name u-url"{{ end }}>{{ .Title }}</a></h3>
-            {{ if not $.Params.nodetails }}
-                {{ with .Params.source }}
-                <i>Source: {{ . | markdownify }}</i>
-                <br>
+    {{ if eq .Params.thumbnails true }}
+        <div id="art-button-main-container">
+        {{ range $paginator.Pages }}
+            <a class="art-fancy-button" href="{{ .RelPermalink }}">
+                <div style="display: inline-grid">
+                    <p>{{ .Title }}</p>
+                    {{ $image := .Resources.Get .Params.thumb.img }}
+                    {{ with $image }}
+                        <img src="{{ .RelPermalink }}" width=400 height=150 />
+                    {{ end }}
+                </div>
+            </a>
+        {{ end }}
+        </div>
+    {{ else }}
+        {{ range $paginator.Pages }}
+            <li style="margin-left: 10px; list-style-type: square;" {{if site.Params.hcard }}class="h-entry"{{ end }}>
+                <h3 style="margin-bottom: 5px"><a href="{{ .RelPermalink }}" {{if site.Params.hcard }}class="p-name u-url"{{ end }}>{{ .Title }}</a></h3>
+                {{ if not $.Params.nodetails }}
+                    {{ with .Params.source }}
+                    <i>Source: {{ . | markdownify }}</i>
+                    <br>
+                    {{ end }}
+                    {{ with .Params.Author }}
+                    <i>{{ . }}</i>
+                    •
+                    {{ end }}
+                    <i><time datetime='{{ .Date.Format "2006-01-02" }}' {{ if site.Params.hcard }}class="dt-published"{{ end }}>{{ .Date.Format "Jan 2, 2006"}}</time></i>
+                    {{ with .Params.License }}
+                    • <i>{{ . | markdownify }}</i>
+                    {{ end }}
                 {{ end }}
-                {{ with .Params.Author }}
-                <i>{{ . }}</i>
-                •
-                {{ end }}
-                <i><time datetime='{{ .Date.Format "2006-01-02" }}' {{ if site.Params.hcard }}class="dt-published"{{ end }}>{{ .Date.Format "Jan 2, 2006"}}</time></i>
-                {{ with .Params.License }}
-                • <i>{{ . | markdownify }}</i>
-                {{ end }}
-            {{ end }}
-            <p {{ if site.Params.hcard }}class="p-summary"{{ end }}><i>{{ .Summary }}</i></p>
-        </li>
+                <p {{ if site.Params.hcard }}class="p-summary"{{ end }}><i>{{ .Summary }}</i></p>
+            </li>
+        {{ end }}
     {{ end }}
 
     <ul class="pagination">
@@ -96,14 +112,14 @@
     <span style="display: inline-block;">{{ printf "Page %d" $paginator.PageNumber }}</span>
 
     {{ with $paginator.Next }}
-    <li class="page-item">
-    <a style="float: right" href="{{ .URL }}">Next</a>
-    </li>
-    {{ else }}
-    <li class="page-item disabled">
-    <span style="float: right">Next</span>
-    </li>
+        <li class="page-item">
+        <a style="float: right" href="{{ .URL }}">Next</a>
+        </li>
+        {{ else }}
+        <li class="page-item disabled">
+        <span style="float: right">Next</span>
+        </li>
     {{ end }}
-
     </ul>
+
 {{ end }}
