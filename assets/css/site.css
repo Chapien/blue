@@ -867,6 +867,7 @@ model-viewer {
 }
 
 .art-fancy-button {
+    text-align: left;
     margin: 5px;
     border: 1px solid var(--border-color);
     border-radius: 5px;
