@@ -366,6 +366,10 @@ aside {
     padding: 15px;
 }
 
+aside .software-details {
+    text-align: left;
+}
+
 aside .nav-menu .site-menu a {
     text-align: left;
 }
