@@ -71,6 +71,9 @@
                     {{ with $image }}
                         <img src="{{ .RelPermalink }}" width=400 height=150 />
                     {{ end }}
+                    {{ with .Params.thumb.src }}
+                        <p><a href="{{ . }}">Source</a></p>
+                    {{ end }}
                 </div>
             </a>
         {{ end }}
