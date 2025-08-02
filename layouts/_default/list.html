@@ -75,7 +75,7 @@
                     </a>
                     {{ with .Params.thumb.src }}
                         {{ $icon := resources.Get "external-link.svg" }}
-                        <a class="ext-link" href="{{ . | safeURL }}" {{ if strings.HasPrefix . "http" }}
+                        <a class="ext-link img-src" href="{{ . | safeURL }}" {{ if strings.HasPrefix . "http" }}
                         target="_blank"{{ end }}>Source
                         {{- if strings.HasPrefix . "http" }}<img class="external-link" aria-hidden="true" alt="External link" width="16" height="16" src="{{ $icon.RelPermalink }}">{{- end -}}</a>
                     {{ end }}
