@@ -233,7 +233,7 @@ body:not(.serif-toggle) #sans {
 }
 
 .isso-post-action > input {
-    border: 1px outset black !important;
+    border: 1px outset var(--border-color) !important;
     border-radius: 5px !important;
     margin-top: 10px !important;
     background-color: var(--extra-color) !important;
@@ -409,7 +409,7 @@ footer {
 }
 
 .gallery-img {
-    border: 1px inset black;
+    border: 1px inset var(--border-color);
     border-radius: 5px;
 }
 
@@ -659,7 +659,7 @@ pre {
 #about-pic {
     float: left;
     margin: 10px;
-    border: 1px inset black;
+    border: 1px inset var(--border-color);
 }
 
 .external-link {
@@ -679,7 +679,7 @@ pre {
     height: 50px;
     line-height: 50px;
     text-align: center;
-    border: 1px outset black;
+    border: 1px outset var(--border-color);
     border-radius: 5px;
     margin-top: 10px;
     background-color: var(--extra-color);
@@ -693,7 +693,7 @@ pre {
 }
 
 .new-banner {
-    border: 1px outset black;
+    border: 1px outset var(--border-color);
     border-radius: 5px;
     padding: 5px;
     text-align: center;
@@ -901,7 +901,7 @@ model-viewer {
     height: 50px;
     line-height: 50px;
     text-align: center;
-    border: 1px outset black;
+    border: 1px outset var(--border-color);
     border-radius: 5px;
     background-color: var(--extra-color);
     text-decoration: none;
