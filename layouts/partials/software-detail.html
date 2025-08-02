@@ -7,13 +7,13 @@
     <details id="nav-menu" open>
     <summary>Project links</summary>
     <strong class="nav-title">Links</strong>
-    {{ if (isset .Params.software.upstream) }}
+    {{ if (isset .Params.software "upstream" ) }}
         <div class="site-menu">
         <img alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="/icons/globe.svg"> 
         <a class="software-links nav-item" href="{{ .Params.software.upstream }}" target="_blank">Upstream</a>
         </div>
     {{ end }}
-    {{ if (isset .Params.software.repo) }}
+    {{ if (isset .Params.software "repo" ) }}
         <div class="site-menu">
         <img alt="" class="symbolic-icon" style="image-rendering: pixelated;" width="16" height="16" src="{{ (resources.Get .Params.software.repoico).Permalink }}">
         <a class="software-links nav-item" href="{{ .Params.software.repo }}" target="_blank">Repo</a>
