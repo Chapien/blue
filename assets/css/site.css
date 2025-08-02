@@ -717,7 +717,7 @@ model-viewer {
     margin-right: auto;
 }
 
-.page-pic {
+.page-pic, .sidebar-pic {
     width: 200px;
     height: auto;
 }
