@@ -876,6 +876,10 @@ model-viewer {
     box-shadow: var(--shadow);
     position: relative;
 
+    a {
+        text-decoration: none;
+    }
+
     p {
         margin: 0;
         color: var(--text-color);
