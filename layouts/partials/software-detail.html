@@ -1,4 +1,7 @@
 <span class="nav-item"><strong>{{ .Title }}</strong></span>
+{{ with .Params.thumb }}
+    <img class="gallery-img page-pic" alt="{{ .caption }}" title="{{ .caption }}" src="{{ .Image }}">
+{{ end }}
 <p class="software-details">{{ .Params.software.summary | markdownify }}</p>
 <nav>
     <details id="nav-menu" open>
