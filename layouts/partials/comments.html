@@ -5,7 +5,7 @@
         data-isso-avatar="false"
         data-isso-vote="false"
         data-isso-reveal-on-click="5"
-        data-isso-page-author-hashes="96ab157c3aaa"
+        data-isso-page-author-hashes="{{ $.Site.Params.issohash }}"
         src="//{{ $.Site.Params.issoURL }}/js/embed.min.js" async crossorigin></script>
     <section id="isso-thread" data-title="{{ .Title }}" data-isso-id="{{ .File.ContentBaseName }}">
         {{ .Scratch.Set "header-type" "h3" }}
