@@ -43,7 +43,7 @@
         width: calc(66.667% - 7.5px);
     }
 
-    .page-pic {
+    .page-pic, .page-pic-large {
         float: right;
         margin-bottom: 10px;
         margin-left: 10px;
@@ -719,6 +719,10 @@ model-viewer {
 
 .page-pic {
     width: 200px;
+    height: auto;
+}
+.page-pic-large {
+    width: 400px;
     height: auto;
 }
 .sidebar-pic {

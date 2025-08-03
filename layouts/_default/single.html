@@ -73,9 +73,11 @@
     <hr>
 
     {{ with .Params.cover }}
+    <a href="{{ .Image }}" data-download="true">
     <picture>
-          <img class="gallery-img page-pic" alt="{{ .caption }}" title="{{ .caption }}" src="{{ .Image }}">
+          <img class="gallery-img {{ if eq .large true }} page-pic-large {{ else }} page-pic {{ end }}" alt="{{ .caption }}" title="{{ .caption }}" src="{{ .Image }}">
     </picture>
+    </a>
     {{ end }}
 
     {{ if .Params.toc }}
