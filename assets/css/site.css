@@ -359,6 +359,7 @@ aside {
     background-color: var(--background-secondary);
 
     text-align: center;
+    max-width: 240px;
 
     border: var(--border);
     box-shadow: var(--shadow);
