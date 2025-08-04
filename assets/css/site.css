@@ -8,7 +8,7 @@
 
     aside {
         margin: 5px;
-
+        max-width: auto;
         flex: 15em 0 0;
     }
 
