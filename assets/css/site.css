@@ -409,6 +409,7 @@ footer {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;   
+    max-width: 100ch;
 }
 
 .gallery-img {
